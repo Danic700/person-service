@@ -2,19 +2,19 @@ package com.person.controller;
 
 import com.person.model.Person;
 import com.person.service.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
 import java.util.Optional;
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/persons")
 public class PersonController {
-    @Autowired
-    private PersonService personService;
+
+    private final PersonService personService;
 
     @PostMapping()
     public ResponseEntity<String> savePerson(@RequestBody Person person) {
